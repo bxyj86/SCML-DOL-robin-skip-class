@@ -1,0 +1,65 @@
+{
+  "name": "robin-skip-class",
+  "nickName": {
+    "en": "Robin Skip Class",
+    "cn": "带罗宾逃课"
+  },
+  "version": "1.0.0",
+  "styleFileList": [],
+  "tweeFileList": [
+    "twee/MyMod Skip Destination.twee",
+    "twee/MyMod Skip Robin Refuse.twee",
+    "twee/MyMod Skip Roof.twee",
+    "twee/MyMod Skip Leighton.twee"
+  ],
+  "imgFileList": [],
+  "scriptFileList": [],
+  "scriptFileList_inject_early": [],
+  "scriptFileList_earlyload": [],
+  "scriptFileList_preload": [],
+  "additionFile": [
+    "framework.js",
+    "lang/CN.json",
+    "lang/EN.json"
+  ],
+  "additionBinaryFile": [],
+  "additionDir": [],
+  "addonPlugin": [
+    {
+      "modName": "TweeReplacer",
+      "addonName": "TweeReplacerAddon",
+      "modVersion": "^1.0.0",
+      "params": [
+        {
+          "passage": "History Lesson",
+          "findString": "<<daydreamicon>><<link [[白日梦|History Lesson Daydream]]>><</link>><<lstress>><<lharass>>",
+          "replaceFile": "twee/History Lesson Patch.txt"
+        }
+      ]
+    },
+    {
+      "modName": "maplebirch",
+      "addonName": "maplebirchAddon",
+      "modVersion": "^5.2.3",
+      "params": {
+        "script": [
+          "framework.js"
+        ]
+      }
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "ModLoader",
+      "version": ">=2.0.0"
+    },
+    {
+      "modName": "TweeReplacer",
+      "version": "^1.0.0"
+    },
+    {
+      "modName": "maplebirch",
+      "version": ">=5.2.3"
+    }
+  ]
+}

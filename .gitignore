@@ -1,0 +1,16 @@
+# 打包产物
+带罗宾逃课.zip
+*.zip
+*.7z
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log

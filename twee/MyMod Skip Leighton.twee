@@ -1,0 +1,32 @@
+:: MyMod Skip Leighton
+<<run myModInitV()>>
+<<set $outside to 1>><<set $location to "school">>
+<<npc Leighton>><<person1>>
+<<set _branch to myModCheckLeighton()>>
+<<set $robinSkipClass.leightonChecked to true>>
+
+身后传来脚步声。礼顿校长站在楼梯口，抱着胳膊看着你们。
+
+<br><br>
+
+<<if _branch is "skip">>
+"……是你们。"<<He>>顿了顿，扫了一眼你的成绩单。"你们是好学生。注意安全。"
+<br><br>
+<<link [[继续|MyMod Skip Roof]]>><</link>>
+<<elseif _branch is "reason">>
+你平静地解释了情况。礼顿皱着眉听完，哼了一声。"20 分钟后回教室。"
+<br><br>
+<<link [[继续|MyMod Skip Roof]]>><<pass 20>><</link>>
+<<elseif _branch is "deal">>
+"念在你们平时表现还不错。"礼顿摆摆手。"20 分钟后回教室。"
+<br><br>
+<<link [[继续|MyMod Skip Roof]]>><<pass 20>><</link>>
+<<else>>
+<<He>>冷笑一声。"逃课？你们知道后果吗。"
+<br><br>
+<<if $money gte 1000>>
+<<link [[给他 1000 英镑|MyMod Skip Roof]]>><<run myModBribeLeighton()>><</link>><<print `-£1000`>>
+<br>
+<</if>>
+<<link [[认罚|School Detention]]>><<run myModAcceptPunishment()>><</link>><<ldom>><<llove>><<ltrauma>>
+<</if>>

@@ -1,0 +1,12 @@
+:: MyMod Skip Destination
+<<run myModInitV()>>
+<<set $outside to 0>><<set $location to "school">>
+<<npc Robin>><<person1>>
+你悄悄碰了碰罗宾的手肘。"我们……出去玩吧？"
+
+<<He>>犹豫了一下，脸有点红，最后还是点了点头。去哪儿？
+
+<br>
+<<schoolicon "building">><<link [[楼顶|MyMod Skip Roof]]>><<run myModEnterRoof()>><</link>>
+<br>
+<<link [[算了，还是上课吧|History Lesson]]>><</link>>

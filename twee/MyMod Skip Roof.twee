@@ -1,0 +1,40 @@
+:: MyMod Skip Roof
+<<run myModInitV()>>
+<<set $outside to 1>><<set $location to "school">>
+<<npc Robin>><<person1>>
+<<if $robinSkipClass.leightonFound and !$robinSkipClass.leightonChecked>>
+<<link [[身后传来脚步声……|MyMod Skip Leighton]]>><</link>>
+<<else>>
+你们爬上了学校楼顶。风有点凉，但视野开阔。
+
+罗宾靠在栏杆上，看着下方的操场。
+
+<br>
+<<link [[和罗宾聊天 (0:30)|MyMod Skip Roof Chat]]>><<run myModRoofChat()>><<pass 30>><</link>><<ggglove>><<gdom>>
+<br>
+<<link [[和罗宾玩个小游戏 (0:30)|MyMod Skip Roof Play]]>><<run myModRoofPlay()>><<pass 30>><</link>><<glove>><<gggdom>>
+<br>
+<<link [[先回去了|School]]>><<run myModLeaveRoof()>><</link>>
+<br>
+<<if Time.hour gte 16>>
+<<link [[一起回家 (0:20)|Robin Walk Home]]>><<run myModGoHomeTogether()>><<pass 20>><</link>>
+<</if>>
+<</if>>
+
+:: MyMod Skip Roof Chat
+<<run myModInitV()>>
+<<set $outside to 1>><<set $location to "school">>
+<<npc Robin>><<person1>>
+你们聊了很多——学校、孤儿院、未来。罗宾笑了，眼睛亮亮的。
+
+<br>
+<<link [[继续|MyMod Skip Roof]]>><</link>>
+
+:: MyMod Skip Roof Play
+<<run myModInitV()>>
+<<set $outside to 1>><<set $location to "school">>
+<<npc Robin>><<person1>>
+你们用手势玩了个小游戏。罗宾难得地放声大笑。
+
+<br>
+<<link [[继续|MyMod Skip Roof]]>><</link>>

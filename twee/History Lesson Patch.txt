@@ -1,0 +1,9 @@
+<<daydreamicon>><<link [[白日梦|History Lesson Daydream]]>><</link>><<lstress>><<lharass>>
+<<if myModShouldShowInvite()>>
+<<if myModRobinReady()>>
+<<schoolicon "building">><<link [[邀请罗宾一起逃课|MyMod Skip Destination]]>><</link>>
+<<else>>
+<<schoolicon "building">><<link [[邀请罗宾一起逃课|MyMod Skip Robin Refuse]]>><</link>>
+<</if>>
+<br>
+<</if>>
