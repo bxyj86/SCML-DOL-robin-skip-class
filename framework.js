@@ -21,6 +21,20 @@
   };
 
   // 是否显示邀请链接
+  // 天气判定：是否在下雨
+  window.myModWeatherIsRain = function () {
+    try {
+      return Weather && Weather.precipitation === 'rain';
+    } catch (e) { return false; }
+  };
+
+  // 天气判定：是否在下雪
+  window.myModWeatherIsSnow = function () {
+    try {
+      return Weather && Weather.precipitation === 'snow';
+    } catch (e) { return false; }
+  };
+
   window.myModShouldShowInvite = function () {
     try {
       if (!V || !C) return false;
@@ -129,6 +143,18 @@
         const r = V.NPCName[idx];
         r.love = Math.min(100, (r.love || 0) + 1);
         r.dom = Math.min(100, (r.dom || 0) + 3);
+      }
+    } catch (e) {}
+  };
+
+  // 打雪仗：好感 +2、自信 +2
+  window.myModRoofSnowball = function () {
+    try {
+      const idx = V.NPCNameList.indexOf('Robin');
+      if (idx >= 0) {
+        const r = V.NPCName[idx];
+        r.love = Math.min(100, (r.love || 0) + 2);
+        r.dom = Math.min(100, (r.dom || 0) + 2);
       }
     } catch (e) {}
   };

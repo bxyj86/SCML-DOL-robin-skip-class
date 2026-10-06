@@ -4,13 +4,14 @@
     "en": "Robin Skip Class",
     "cn": "带罗宾逃课"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "styleFileList": [],
   "tweeFileList": [
     "twee/MyMod Skip Destination.twee",
     "twee/MyMod Skip Robin Refuse.twee",
     "twee/MyMod Skip Roof.twee",
-    "twee/MyMod Skip Leighton.twee"
+    "twee/MyMod Skip Leighton.twee",
+    "twee/MyMod Skip Weather Refuse.twee"
   ],
   "imgFileList": [],
   "scriptFileList": [],
@@ -18,9 +19,7 @@
   "scriptFileList_earlyload": [],
   "scriptFileList_preload": [],
   "additionFile": [
-    "framework.js",
-    "lang/CN.json",
-    "lang/EN.json"
+    "framework.js"
   ],
   "additionBinaryFile": [],
   "additionDir": [],

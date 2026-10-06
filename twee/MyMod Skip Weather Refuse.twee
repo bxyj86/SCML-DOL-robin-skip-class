@@ -1,0 +1,10 @@
+:: MyMod Skip Weather Refuse
+<<run myModInitV()>>
+<<set $outside to 0>><<set $location to "school">>
+<<npc Robin>><<person1>>
+你轻轻碰了碰罗宾的手肘。"我们……出去玩吧？"
+
+<<He>>望向窗外——雨点正敲打着玻璃。"外面在下雨呢，"<<he>>轻声说，"下次吧。"
+
+<br>
+<<link [[回到课堂|History Lesson]]>><</link>>
