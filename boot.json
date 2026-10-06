@@ -33,8 +33,8 @@
       "params": [
         {
           "passage": "History Lesson",
-          "findString": "<<daydreamicon>><<link [[白日梦|History Lesson Daydream]]>><</link>><<lstress>><<lharass>>",
-          "replaceFile": "twee/History Lesson Patch.txt"
+          "replaceFile": "twee/History Lesson Patch.txt",
+          "findRegex": "\\t<<daydreamicon>><<link \\[\\[.*?\\|History Lesson Daydream\\]\\]>><</link>><<lstress>><<lharass>>"
         }
       ]
     }
