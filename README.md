@@ -28,18 +28,9 @@
 本模组使用独立变量前缀 `V.robinSkipClass`，与 **DomRobin** 等罗宾扩展模组**不冲突**，可以同时安装。
 
 
-## 安装方式说明
+## 安装说明
 
 请从仓库 [Releases](https://github.com/bxyj86/SCML-DOL-robin-skip-class/releases/latest) 下载最新的 **`带罗宾逃课.zip`**（请不要下载 source code）。
-
-解压后放进 DoL 的 `mods/` 目录。
-
-正确的目录结构（`mods/` 下直接是 `带罗宾逃课/`）：
-
-- `mods/带罗宾逃课/boot.json`
-- `mods/带罗宾逃课/framework.js`
-- `mods/带罗宾逃课/twee/`
-- `mods/带罗宾逃课/lang/`
 
 **依赖模组**（必须已安装）：
 
