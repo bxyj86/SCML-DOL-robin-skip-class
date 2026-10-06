@@ -23,7 +23,7 @@
 
 功能很小，但做得很细：只有在罗宾**足够自信、足够信任你、情绪足够稳定**的时候，罗宾才会答应。逃课之后你们会到学校楼顶度过一段时间，可以和罗宾聊天、玩游戏，也可能**被礼顿校长逮个正着**——这时候根据你的成绩、诡术、名声、违规行为，触发四种不同的后果。
 
-模组不会修改任何原版剧情，只通过 `TweeReplacer` 往 `历史课` passage 里插一个链接，其余内容全部由本模组自己的 passage 承载。
+模组不会修改任何原版剧情，只通过 `TweeReplacer` 往 `History Lesson` passage 里插一个链接，其余内容全部由本模组自己的 passage 承载。
 
 本模组使用独立变量前缀 `V.robinSkipClass`，与 **DomRobin** 等罗宾扩展模组**不冲突**，可以同时安装。
 
@@ -38,9 +38,9 @@
 |---|---|---|
 | ModLoader | ≥2.0.0 | 基础模组加载器 |
 | TweeReplacer | ^1.0.0 | 用于往原版 passage 插入链接 |
-| **maplebirch（秋枫白桦框架）** | **≥5.2.3** | **本模组的核心运行依赖，负责加载 `framework.js`** |
+| **ModI18N（中文汉化模组）** | **≥1.0.1** | **本模组通过 ModI18N 翻译后的 `History Lesson` 插入链接，必须安装** |
 
-> ⚠️ **务必确认秋枫白桦框架（maplebirch）已安装**，否则本模组的逻辑函数不会加载，会直接报错。
+> 💡 **本模组必须与 ModI18N（中文汉化模组）同时安装**，因为它依赖 `History Lesson` 的中文翻译结果作为锚点。如果只装本模组没装汉化，链接不会显示。
 
 **适配的游戏版本：0.5.12.13**（暂未适配其他版本）
 
@@ -62,6 +62,11 @@
 
 3. **礼顿遭遇的罗宾反应**
    - 礼顿出现时，罗宾会"身体僵一下，往你身后缩半步"，符合角色设定
+
+4. **TweeReplacer 锚点改造**
+   - 从 `findString`（依赖中文翻译文本）改为 `findRegex`
+   - 用内部 passage 名 `History Lesson Daydream` 做锚点，ModI18N 翻译更新不再影响本模组
+   - **依赖 ModI18N（中文汉化模组）**
 
 ### 1.0.2
 
@@ -305,7 +310,7 @@
 
 ## 致谢
 
-1. 感谢 [MaplebirchLeaf](https://github.com/MaplebirchLeaf) 制作 [maplebirch 框架](https://github.com/MaplebirchLeaf/SCML-DOL-maplebirchFramework)，让写模组这件事变得不那么痛苦。
+1. 感谢 [MaplebirchLeaf](https://github.com/MaplebirchLeaf) 制作 [maplebirch 框架](https://github.com/MaplebirchLeaf/SCML-DOL-maplebirchFramework)，本模组早期版本曾依赖它加载脚本，虽然 1.0.3 起已改用原版 `scriptFileList`，仍感谢其提供的设计参考。
 2. 感谢 [零环零理想](https://github.com/ZeroRing233) 的 [DomRobin](https://github.com/ZeroRing233/Degrees-of-Lewdity-RobinMod) 提供设计与代码参考。
 3. 感谢 [Lyoko-Jeremie](https://github.com/Lyoko-Jeremie) 制作 [sugarcube-2-ModLoader](https://github.com/Lyoko-Jeremie/sugarcube-2-ModLoader)。
 4. 感谢 [狐千月](https://github.com/emicoto) 制作的 [SCMLSimpleFramework](https://github.com/emicoto/SCMLSimpleFramework)。
