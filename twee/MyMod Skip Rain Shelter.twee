@@ -1,0 +1,11 @@
+:: MyMod Skip Rain Shelter
+<<run myModInitV()>>
+<<set $outside to 1>><<set $location to "school">>
+<<npc Robin>><<person1>>
+<<run myModWetAll(myModRainLevel())>>
+你们挤到楼梯间的小屋檐下。雨点砸在地上溅起水花，飞溅过来的雨水仍然打湿了你们的衣服。
+
+罗宾缩了缩肩膀，看着雨幕，小声嘟囔："……不过，还是挺开心的。"
+
+<br>
+<<link [[继续|MyMod Skip Roof]]>><</link>>

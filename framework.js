@@ -20,18 +20,22 @@
     return (r.dom || 0) >= 80 && (r.love || 0) >= 80 && (r.trauma || 0) < 10;
   };
 
-  // 是否显示邀请链接
   // 天气判定：是否在下雨
   window.myModWeatherIsRain = function () {
     try {
-      return Weather && Weather.precipitation === 'rain';
+      if (!Weather) return false;
+      if (Weather.precipitation !== 'rain') return false;
+      if (Weather.isSnow) return false;
+      return (Weather.precipitationIntensity || 0) > 0;
     } catch (e) { return false; }
   };
 
   // 天气判定：是否在下雪
   window.myModWeatherIsSnow = function () {
     try {
-      return Weather && Weather.precipitation === 'snow';
+      if (!Weather) return false;
+      if (!Weather.isSnow) return false;
+      return (Weather.precipitationIntensity || 0) > 0;
     } catch (e) { return false; }
   };
 
@@ -92,10 +96,13 @@
     V[KEY].active = true;
     V[KEY].leightonChecked = false;
     V[KEY].leightonFound = Math.floor(Math.random() * 100) < 5;
+    V[KEY].weatherAtEntry = (Weather && Weather.precipitation) || 'none';
+    V[KEY].rainHandled = false;
+    V[KEY].interactionsAfter15 = 0;
     try {
       const fromHour = Time.hour;
       const hours = [];
-      for (let h = fromHour; h <= 16; h++) hours.push(h);
+      for (let h = fromHour; h <= 15; h++) hours.push(h);
       setRobinLocationOverride('school', hours);
     } catch (e) {}
   };
@@ -159,6 +166,75 @@
     } catch (e) {}
   };
 
+  // ========== 打湿全身 ==========
+  window.myModWetAll = function (level) {
+    const slots = ['upper','lower','underupper','underlower',
+                   'overupper','overlower','head','face','neck',
+                   'hands','legs','feet'];
+    for (const s of slots) {
+      try {
+        V[s + 'wet'] = level;
+        const stage = level >= 100 ? 3 : level >= 80 ? 2 : level >= 50 ? 1 : 0;
+        V[s.replace('_','') + 'wetstage'] = stage;
+      } catch (e) {}
+    }
+  };
+
+  // ========== 雨量分级 ==========
+  window.myModRainLevel = function () {
+    const pi = (Weather && Weather.precipitationIntensity) || 0;
+    if (pi >= 0.7) return 100;
+    if (pi >= 0.3) return 80;
+    return 50;
+  };
+
+  window.myModRainTooHeavy = function () {
+    return ((Weather && Weather.precipitationIntensity) || 0) >= 0.7;
+  };
+
+  // ========== 变天检测 ==========
+  window.myModWeatherChangedToRain = function () {
+    try {
+      const atEntry = (V[KEY] && V[KEY].weatherAtEntry) || 'none';
+      const now = (Weather && Weather.precipitation) || 'none';
+      const intensity = (Weather && Weather.precipitationIntensity) || 0;
+      const handled = V[KEY] && V[KEY].rainHandled;
+      return atEntry !== 'rain' && now === 'rain' && intensity > 0 && !handled;
+    } catch (e) { return false; }
+  };
+
+  window.myModMarkRainHandled = function () {
+    if (V[KEY]) V[KEY].rainHandled = true;
+  };
+
+  // ========== 互动计数（仅 15 点后） ==========
+  window.myModCountInteraction = function () {
+    if (!V[KEY]) return;
+    if (Time.hour >= 15) {
+      V[KEY].interactionsAfter15 = (V[KEY].interactionsAfter15 || 0) + 1;
+    }
+  };
+
+  window.myModMustGoHome = function () {
+    try {
+      return Time.hour >= 15 && ((V[KEY] && V[KEY].interactionsAfter15) || 0) >= 3;
+    } catch (e) { return false; }
+  };
+
+  // ========== 拥抱：love +3、lust +1、dom +1、trauma -3 ==========
+  window.myModRoofHug = function () {
+    try {
+      const idx = V.NPCNameList.indexOf('Robin');
+      if (idx >= 0) {
+        const r = V.NPCName[idx];
+        r.love = Math.min(100, (r.love || 0) + 3);
+        r.lust = Math.min(100, (r.lust || 0) + 1);
+        r.dom = Math.min(100, (r.dom || 0) + 1);
+        r.trauma = Math.max(0, (r.trauma || 0) - 3);
+      }
+    } catch (e) {}
+  };
+
   // 离开楼顶：只清状态
   window.myModLeaveRoof = function () {
     V[KEY].active = false;
@@ -167,6 +243,12 @@
 
   // 一起回家：只清状态
   window.myModGoHomeTogether = function () {
+    V[KEY].active = false;
+    V.robinlocationoverride = null;
+  };
+
+  // 到家后最终清状态
+  window.myModArriveHome = function () {
     V[KEY].active = false;
     V.robinlocationoverride = null;
   };

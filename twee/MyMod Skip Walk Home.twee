@@ -1,0 +1,22 @@
+:: MyMod Skip Walk Home
+<<run myModInitV()>>
+<<set $outside to 1>><<set $location to "town">>
+<<npc Robin>><<person1>>
+你们从楼顶下来。走廊里已经没什么人了，天色暗了下来。
+
+罗宾和你并肩走出校门，脚步不快。<<He>>一路上话不多，但走得很近，肩膀时不时碰到你。
+
+<br>
+<<link [[继续|MyMod Skip Arrive Home]]>><<pass 20>><</link>>
+
+:: MyMod Skip Arrive Home
+<<run myModInitV()>>
+<<set $outside to 0>><<set $location to "home">>
+<<npc Robin>><<person1>>
+你们回到孤儿院。罗宾在房门口停下，回头看了你一眼，脸微微发红。
+
+"今天……很开心。"<<He>>小声说，然后推门进去了。
+
+<br>
+<<run myModArriveHome()>>
+<<link [[继续|Orphanage]]>><</link>>

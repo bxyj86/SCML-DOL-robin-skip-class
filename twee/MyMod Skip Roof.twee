@@ -4,9 +4,30 @@
 <<npc Robin>><<person1>>
 <<if $robinSkipClass.leightonFound and !$robinSkipClass.leightonChecked>>
 <<link [[身后传来脚步声……|MyMod Skip Leighton]]>><</link>>
+<<elseif myModWeatherChangedToRain()>>
+<<run myModMarkRainHandled()>>
+天空突然暗了下来，雨点砸在楼顶上。
+
+<br>
+<<if myModRainTooHeavy()>>
+雨势很大，根本没法待下去。罗宾拉了拉你的袖子。"雨太大了，我们回去吧。"
+<br>
+<<link [[回去上课|History Lesson]]>><<run myModWetAll(myModRainLevel())>><</link>>
+<<else>>
+<<link [[找个地方避雨 (0:10)|MyMod Skip Rain Shelter]]>><</link>>
+<br>
+<<link [[回去上课|History Lesson]]>><<run myModWetAll(myModRainLevel())>><</link>>
+<</if>>
+<<elseif myModMustGoHome()>>
+天色不早了。罗宾拉了拉你的袖子。"该回去了。"
+
+<br>
+<<link [[一起回家 (0:20)|MyMod Skip Walk Home]]>><<run myModGoHomeTogether()>><<pass 20>><</link>>
 <<else>>
 <<if myModWeatherIsSnow()>>
 雪片落在楼顶，很快积了薄薄一层。罗宾搓了搓手，眼睛亮了起来。
+<<elseif myModWeatherIsRain()>>
+你们站在楼顶的屋檐下。雨点敲打着栏杆。
 <<else>>
 你们爬上了学校楼顶。风有点凉，但视野开阔。
 
@@ -14,18 +35,21 @@
 <</if>>
 
 <br>
-<<link [[和罗宾聊天 (0:30)|MyMod Skip Roof Chat]]>><<run myModRoofChat()>><<pass 30>><</link>><<ggglove>><<gdom>>
+<<link [[和罗宾聊天 (0:30)|MyMod Skip Roof Chat]]>><<run myModRoofChat()>><<run myModCountInteraction()>><<pass 30>><</link>><<ggglove>><<gdom>>
 <br>
-<<link [[和罗宾玩个小游戏 (0:30)|MyMod Skip Roof Play]]>><<run myModRoofPlay()>><<pass 30>><</link>><<glove>><<gggdom>>
+<<link [[和罗宾玩个小游戏 (0:30)|MyMod Skip Roof Play]]>><<run myModRoofPlay()>><<run myModCountInteraction()>><<pass 30>><</link>><<glove>><<gggdom>>
+<br>
+<<link [[和罗宾拥抱 (0:30)|MyMod Skip Roof Hug]]>><<run myModRoofHug()>><<run myModCountInteraction()>><<pass 30>><</link>><<ggglove>><<glust>><<gdom>><<lltrauma>>
 <br>
 <<if myModWeatherIsSnow()>>
-<<link [[和罗宾打雪仗 (0:30)|MyMod Skip Roof Snowball]]>><<run myModRoofSnowball()>><<pass 30>><</link>><<gglove>><<ggdom>>
+<<link [[和罗宾打雪仗 (0:30)|MyMod Skip Roof Snowball]]>><<run myModRoofSnowball()>><<run myModCountInteraction()>><<pass 30>><</link>><<gglove>><<ggdom>>
 <br>
 <</if>>
+<<if Time.hour lt 15>>
 <<link [[先回去了|Hallways]]>><<run myModLeaveRoof()>><</link>>
-<br>
-<<if Time.hour gte 16>>
-<<link [[一起回家 (0:20)|Robin Walk Home]]>><<run myModGoHomeTogether()>><<pass 20>><</link>>
+<</if>>
+<<if Time.hour gte 15>>
+<<link [[一起回家 (0:20)|MyMod Skip Walk Home]]>><<run myModGoHomeTogether()>><<pass 20>><</link>>
 <</if>>
 <</if>>
 
@@ -43,6 +67,15 @@
 <<set $outside to 1>><<set $location to "school">>
 <<npc Robin>><<person1>>
 你们用手势玩了个小游戏。罗宾难得地放声大笑。
+
+<br>
+<<link [[继续|MyMod Skip Roof]]>><</link>>
+
+:: MyMod Skip Roof Hug
+<<run myModInitV()>>
+<<set $outside to 1>><<set $location to "school">>
+<<npc Robin>><<person1>>
+你张开手臂。罗宾愣了一下，随即整个人埋进你怀里，手臂环住了你。
 
 <br>
 <<link [[继续|MyMod Skip Roof]]>><</link>>
