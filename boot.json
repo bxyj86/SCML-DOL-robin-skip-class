@@ -4,7 +4,7 @@
     "en": "Robin Skip Class",
     "cn": "带罗宾逃课"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "styleFileList": [],
   "tweeFileList": [
     "twee/MyMod Skip Destination.twee",
@@ -16,13 +16,13 @@
     "twee/MyMod Skip Walk Home.twee"
   ],
   "imgFileList": [],
-  "scriptFileList": [],
+  "scriptFileList": [
+    "framework.js"
+  ],
   "scriptFileList_inject_early": [],
   "scriptFileList_earlyload": [],
   "scriptFileList_preload": [],
-  "additionFile": [
-    "framework.js"
-  ],
+  "additionFile": [],
   "additionBinaryFile": [],
   "additionDir": [],
   "addonPlugin": [
@@ -37,16 +37,6 @@
           "replaceFile": "twee/History Lesson Patch.txt"
         }
       ]
-    },
-    {
-      "modName": "maplebirch",
-      "addonName": "maplebirchAddon",
-      "modVersion": "^5.2.3",
-      "params": {
-        "script": [
-          "framework.js"
-        ]
-      }
     }
   ],
   "dependenceInfo": [
@@ -57,10 +47,6 @@
     {
       "modName": "TweeReplacer",
       "version": "^1.0.0"
-    },
-    {
-      "modName": "maplebirch",
-      "version": ">=5.2.3"
     }
   ]
 }

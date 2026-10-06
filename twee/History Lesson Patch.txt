@@ -3,7 +3,7 @@
 <<if myModWeatherIsRain()>>
 <<schoolicon "building">><<link [[邀请罗宾一起逃课|MyMod Skip Weather Refuse]]>><</link>>
 <<elseif myModRobinReady()>>
-<<schoolicon "building">><<link [[邀请罗宾一起逃课|MyMod Skip Destination]]>><</link>>
+<<schoolicon "building">><<link [[邀请罗宾一起逃课|MyMod Skip Destination]]>><</link>><<glove>>
 <<else>>
 <<schoolicon "building">><<link [[邀请罗宾一起逃课|MyMod Skip Robin Refuse]]>><</link>>
 <</if>>

@@ -253,8 +253,6 @@
     V.robinlocationoverride = null;
   };
 
-  if (typeof maplebirch !== 'undefined') {
-    maplebirch.on(':storyready', initV);
-    maplebirch.on(':onLoad', initV);
-  }
+  // 不绑定 maplebirch 事件，避免干扰框架内部初始化
+  // initV 由各入口 passage 的 <<run myModInitV()>> 兜底调用
 })();

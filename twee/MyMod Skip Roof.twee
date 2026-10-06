@@ -6,11 +6,11 @@
 <<link [[身后传来脚步声……|MyMod Skip Leighton]]>><</link>>
 <<elseif myModWeatherChangedToRain()>>
 <<run myModMarkRainHandled()>>
-天空突然暗了下来，雨点砸在楼顶上。
+天空突然暗了下来，雨点砸在楼顶上，溅起细小的水花。
 
 <br>
 <<if myModRainTooHeavy()>>
-雨势很大，根本没法待下去。罗宾拉了拉你的袖子。"雨太大了，我们回去吧。"
+雨势很大，根本没法待下去。罗宾拉了拉你的袖子，声音有点急。"雨太大了，我们回去吧。"
 <br>
 <<link [[回去上课|History Lesson]]>><<run myModWetAll(myModRainLevel())>><</link>>
 <<else>>
@@ -19,19 +19,19 @@
 <<link [[回去上课|History Lesson]]>><<run myModWetAll(myModRainLevel())>><</link>>
 <</if>>
 <<elseif myModMustGoHome()>>
-天色不早了。罗宾拉了拉你的袖子。"该回去了。"
+天色不早了。罗宾拉了拉你的袖子，声音轻轻的。"该回去了。"
 
 <br>
 <<link [[一起回家 (0:20)|MyMod Skip Walk Home]]>><<run myModGoHomeTogether()>><<pass 20>><</link>>
 <<else>>
 <<if myModWeatherIsSnow()>>
-雪片落在楼顶，很快积了薄薄一层。罗宾搓了搓手，眼睛亮了起来。
+雪片落在楼顶，很快积了薄薄一层。罗宾搓了搓手，凑到栏杆前，眼睛亮亮的。
 <<elseif myModWeatherIsRain()>>
-你们站在楼顶的屋檐下。雨点敲打着栏杆。
+你们站在楼顶的屋檐下。雨点敲打着栏杆，发出细碎的声响。
 <<else>>
 你们爬上了学校楼顶。风有点凉，但视野开阔。
 
-罗宾靠在栏杆上，看着下方的操场。
+罗宾靠在栏杆上，看着下方的操场，嘴角带着一点不太明显的笑。
 <</if>>
 
 <br>
@@ -57,7 +57,9 @@
 <<run myModInitV()>>
 <<set $outside to 1>><<set $location to "school">>
 <<npc Robin>><<person1>>
-你们聊了很多——学校、孤儿院、未来。罗宾笑了，眼睛亮亮的。
+你们聊了很多——学校、孤儿院、还有将来的事。罗宾一开始只是听着，后来话匣子慢慢打开，说起自己想做的一些小事。
+
+<<He>>笑了，眼睛亮亮的，像是有细碎的星星落进了里面。
 
 <br>
 <<link [[继续|MyMod Skip Roof]]>><</link>>
@@ -66,7 +68,9 @@
 <<run myModInitV()>>
 <<set $outside to 1>><<set $location to "school">>
 <<npc Robin>><<person1>>
-你们用手势玩了个小游戏。罗宾难得地放声大笑。
+你们用手势比划着玩了个小游戏。罗宾难得地放声笑了出来，笑完又不好意思地捂住嘴。
+
+"再来一次。"<<He>>小声说，眼睛弯弯的。
 
 <br>
 <<link [[继续|MyMod Skip Roof]]>><</link>>
@@ -75,7 +79,9 @@
 <<run myModInitV()>>
 <<set $outside to 1>><<set $location to "school">>
 <<npc Robin>><<person1>>
-你张开手臂。罗宾愣了一下，随即整个人埋进你怀里，手臂环住了你。
+你张开手臂。罗宾愣了一下，耳根慢慢红起来，然后整个人轻轻地埋进你怀里。
+
+<<He>>的手臂环住你的腰，脸贴在你胸口，好一会儿才小声说："……今天的事，谢谢。"
 
 <br>
 <<link [[继续|MyMod Skip Roof]]>><</link>>
@@ -84,7 +90,11 @@
 <<run myModInitV()>>
 <<set $outside to 1>><<set $location to "school">>
 <<npc Robin>><<person1>>
-你们抓起地上的雪团互相扔。罗宾笑得上气不接下气，脸颊冻得通红。
+你弯腰抓了一把雪，团成雪球。罗宾瞪大了眼睛。"等、等一下——！"
+
+<<He>>笑着想躲，但还是被雪球砸中了肩膀。雪末溅到<<his>>头发上，亮晶晶的。
+
+罗宾不服气地也抓起一把雪，嘴角微微上扬。"你完了。"
 
 <br>
 <<link [[继续|MyMod Skip Roof]]>><</link>>

@@ -1,9 +1,12 @@
 :: MyMod Skip Robin Refuse
+<<run myModInitV()>>
 <<set $outside to 0>><<set $location to "school">>
 <<npc Robin>><<person1>>
-罗宾扭扭捏捏地低下头，脸涨得通红。"我……我不太想逃课。对不起……"
+你悄悄碰了碰罗宾的手肘。"我们……出去玩吧？"
 
-<<He>>把注意力转回课本上。
+罗宾的脸唰地红了。<<He>>扭扭捏捏地低下头，手指绞在一起。"我、我不太想逃课……"<<He>>小声说，声音越来越轻，"对不起……"
+
+<<He>>把注意力转回课本上，耳朵尖还是红的。
 
 <br>
 <<link [[回到课堂|History Lesson]]>><</link>>
